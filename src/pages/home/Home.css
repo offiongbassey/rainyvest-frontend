@@ -1,0 +1,106 @@
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,500&display=swap');
+
+.home{
+    background-color: rgb(191, 247, 219);
+}
+ 
+.intro{
+    padding: 200px 20px 100px 20px;
+}
+ .invest{
+    background-color: rgb(3, 54, 29);
+}
+.invest .c_card{
+    width: 100%;
+    border: none;
+}
+
+.invest .c_card span{
+    width: 80px;
+    padding: 10px;
+}
+.intro button{
+    margin-top: 20px;
+}
+.invest h2{
+    color: #fff;
+}
+.invest p{
+    color: #fff;
+}
+.market{
+    padding-top: 60px;
+}
+.market h1{
+    font-weight: 800;
+    font-family: 'Acme', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    color: rgb(17, 63, 17);
+}
+.market .info span{
+    background-color: rgb(253, 253, 30);
+    padding: 5px;
+}
+.market .img img{
+width: 500px;
+border-radius: 50px;
+
+}
+.market .img img:hover{
+    transition: 0.9s;
+box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+}
+
+.market .steps{
+    padding: 20px 10px;
+    /* background-color: red; */
+    border-left: 2px solid #efefef;
+}
+.market .steps span{
+    padding: 15px 15px 0px 15px;
+    background-color: #efefef
+}
+
+.profit{
+    padding: 20px 20px 200px 20px;
+    background-image: url("../../assets/profit.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    
+}
+.profit .info button{
+    margin-top: 30px;
+}
+.profit .info h1{
+    font-size: 52px;
+}
+.profit .info-desc{
+    padding: 10px 150px;
+}
+
+
+@media(max-width: 767px){
+    .profit .info-desc{
+        padding: 10px;
+    }
+    .profit .info h1{
+        font-size: 38px;
+    }
+    .market .img img{
+        width:320px;
+        
+        }
+}
+
+@media(max-width: 1200px){
+    .market .img img{
+        width:320px;
+        
+        }
+}
+
+@media(max-width: 900px){
+    .r_card{
+        flex-direction: column;
+    }
+}

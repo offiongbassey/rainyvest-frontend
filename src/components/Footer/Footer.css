@@ -1,0 +1,26 @@
+
+.footer{
+    background-color: rgb(3, 54, 29);
+}
+.footer .c_card{
+    width: 100%;
+}
+.footer h1{
+    color: yellow;
+}
+.footer span{
+    color: #fff;
+}
+.footer li{
+    color: #fff;
+}
+.footer p{
+    color: #fff;
+}
+.footer h2{
+    color: #fff;
+}
+.footer h4{
+    color: #fff;
+    padding: 10px;
+}

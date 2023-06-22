@@ -1,17 +1,135 @@
-.App {
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,500&display=swap');
+
+*{
+  padding: 0;
+  margin: 0;
+}
+body{
+  padding: 0;
+  margin: auto;
+  font-family: "Poppins", sans-serif;
+}
+.container{
+  margin: 0px 120px;
+  padding: 20px;
+}
+.d_flex{
+  display: flex;
+  justify-content: space-between;
+}
+.r_card{
+  display: flex;
+  flex-direction: row;
+  padding: 10px;
+}
+.c_card{
+padding: 10px;
+}
+.text-center{
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+button{
+border: none;
+border-radius: 10px;
+font-size: 14px;
+font-family: "Poppins", sans-serif;
+font-weight: 600;
+cursor: pointer;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
+.btn-primary{
+  max-width: 500px;
+min-width: 100px;
+padding: 10px;
+height: 45px;
+background-color: rgb(22, 22, 214);
+color: #fff;
+}
+.btn-primary:hover{
+background-color: blue;
+color: #fff;
+}
+.btn-secondary{
+  max-width: 500px;
+min-width: 100px;
+padding: 10px;
+  height: 45px;
+  background-color: rgb(226, 237, 247);
+  color: rgb(22, 22, 214);
   }
-.btn-primary :hover{
-background-color: #fff;
+  .btn-secondary:hover{
+  background-color: rgb(239, 246, 252);
+  }
+
+  .btn-danger{
+    max-width: 500px;
+min-width: 100px;
+padding: 10px;
+    height: 45px;
+    background-color: rgb(238, 29, 22);
+    color: #fff;
+    }
+    .btn-danger:hover{
+    background-color: rgb(247, 53, 46);
+    color: #fff;
+   }
+
+   .btn-warning{
+    max-width: 500px;
+    min-width: 100px;
+    padding: 10px;
+    height: 45px;
+    background-color: rgb(214, 183, 47);
+    color: #fff;
+    }
+    .btn-warning:hover{
+    background-color:rgb(235, 204, 68);
+    color: #fff;
+   }
+
+   .btn-success{
+    max-width: 500px;
+    min-width: 100px;
+    padding: 10px;
+    height: 45px;
+    background-color: rgb(21, 170, 58);
+    color: #fff;
+    }
+    .btn-success:hover{
+    background-color: rgb(43, 206, 84);
+    color: #fff;
+   }
+   .btn-success-out{
+    max-width: 500px;
+    min-width: 100px;
+    padding: 10px;
+    height: 45px;
+    color: rgb(21, 170, 58);
+    background-color: rgb(232, 250, 237);
+    }
+    .btn-success-out:hover{
+    background-color: rgb(43, 206, 84);
+    color: #fff;
+   }
+   
+
+ul{
+ list-style-type: none;
+}
+a{
+  text-decoration: none;
 }
 
+
+   @media(max-width: 767px) {
+
+    .r_card{
+      display: flex;
+      flex-direction: column;
+      padding: 5px;
+    }
+    .container{
+      margin: 0px 10px;
+      padding: 5px;
+    }
+   }
