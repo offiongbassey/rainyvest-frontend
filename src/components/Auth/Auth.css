@@ -1,0 +1,25 @@
+.auth{
+    
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    padding: 0px;
+    align-items: center;
+
+}
+.auth .r_auth{
+    margin: 200px 0px;
+    /* border: 2px solid red; */
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    width: 400px;
+    text-align: center;
+    padding: 20px 0px;
+}
+
+.auth-form{
+    padding: 30px 0px;
+}
+
+.auth .form-control{
+padding: 3px 0px;
+}

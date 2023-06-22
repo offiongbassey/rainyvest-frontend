@@ -4,6 +4,7 @@ import {GiPayMoney, GiReceiveMoney}  from "react-icons/gi";
 import {BiStoreAlt} from "react-icons/bi";
 import {FcBullish} from "react-icons/fc";
 import HowItWorks from '../../components/How-it-works/HowItWorks';
+import { Link } from 'react-router-dom';
 const Home = () => {
   
 
@@ -14,7 +15,7 @@ const Home = () => {
               <div className='intro-text text-center'>
                     <h1>The Best Agric Invesment Market</h1>
                     <p>Join Millions of People today to invest in Agric stock at lower price and sale when high.</p>
-                    <button className='btn-warning'>SignUp </button> <br/>
+                    <Link to="/login"><button className='btn-warning'>SignUp </button> <br/></Link>
               </div>
             </div>
             <div className='container invest'>
