@@ -9,6 +9,8 @@ import Login from './pages/auth/Login';
 import Forgot from './pages/auth/Forgot';
 import ResendMail from './pages/auth/ResendMail';
 import ResetPassword from './pages/auth/ResetPassword';
+import UserDashboard from './pages/account/dashboard/UserDashboard';
+import Sidebar from './components/Sidebar/Sidebar';
 
 function App() {
   return (
@@ -54,7 +56,7 @@ function App() {
           </>
         }
         />
-        <Route path ="/resend" element={
+        <Route path="/resend" element={
           <>
           <Navbar />
           <ResendMail />
@@ -62,7 +64,7 @@ function App() {
           </>
         }
         />
-        <Route path ="/change-password" element={
+        <Route path="/change-password" element={
           <>
           <Navbar />
           <ResetPassword />
@@ -70,6 +72,15 @@ function App() {
           </>
         }
         />
+        <Route path="/dashboard" element={
+          <>
+          <Sidebar>
+          <UserDashboard />
+          </Sidebar>
+          </>
+        }
+        />
+        
       </Routes>
     </BrowserRouter>
   );

@@ -17,6 +17,7 @@ header ul li {
     margin-left: 30px;
     display: inline;
 }
+
 header ul li a{
     transition: 0.5s;
     font-size: 15px;

@@ -1,0 +1,61 @@
+
+.wrap{
+    display: flex;
+    flex-direction: row;
+}
+.sidebar{
+    padding: 30px 0px 0px 0px;
+    width: 280px;
+    background-color: rgb(14, 199, 29);
+    height: 100%;
+    position: fixed;
+    z-index: 1;
+    overflow-x: hidden; /* Disable horizontal scroll */
+}
+.contain{
+    padding: 30px 20px;
+    background-color: rgb(247, 253, 248);
+    width: 100%;
+    margin-left: 290px;
+
+}
+.sidebar ul {
+    list-style: none;
+}
+    
+.sidebar ul li{
+    color: #fff;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 50px;
+    padding-left: 30px;
+
+}
+.sidebar .ul_hover li:hover{
+    padding: 5px;
+    background-color: rgb(22, 214, 38);
+    transition: 0.5s;
+
+}
+.sidebar h2{
+    margin-bottom: 20px;
+    padding-left: 30px;
+}
+
+.sidebar .logout{
+    margin-top: 80px;
+}
+
+.contain .head {
+    float: right;
+    color: rgb(14, 199, 29);
+}
+.contain .content{
+    padding-top: 50px;
+}
+.dashboard_card{
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 10px;
+    margin-bottom: 20px;
+}

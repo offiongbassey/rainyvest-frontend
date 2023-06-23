@@ -9,7 +9,6 @@ const Forgot = () => {
       <h2>Forgot Password</h2>
           <br/>
           <div className='auth-form'>
-            
             <div className='form-control'>
                 <input type="email" name='email' placeholder='Email Address' />
             </div>
@@ -18,7 +17,7 @@ const Forgot = () => {
             </div>
             <br/>
             <br/>
-            <Link to="/forgot-password"><p>Back to Login</p></Link>
+            <Link to="/login"><p>Back to Login</p></Link>
           </div>
       </Auth>
     </>

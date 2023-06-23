@@ -7,8 +7,7 @@ const SignUp = () => {
     <>
       <Auth>
           <h2>Create a Free Account</h2>
-          <br/>
-          <p>Already have an account? <Link to="/login">Login</Link></p>
+          
           <div className='auth-form'>
             <div className='form-control'>
                 <input type="text" name='firstName' placeholder='First Name' />
@@ -32,7 +31,9 @@ const SignUp = () => {
                 <button className='btn-success'>Create Account</button>
             </div>
             <br/>
-            <p><Link to="/login">Resend Verification Mail</Link></p>
+            <p>Already have an account? <Link to="/login">Login</Link></p>
+            <br/>
+            <p><Link to="/resend">Resend Verification Mail</Link></p>
           </div>
       </Auth>
     </>

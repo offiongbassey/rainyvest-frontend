@@ -1,0 +1,101 @@
+
+.dashboard_small_card .c_card{
+    width: 33.3%;
+    padding: 0px;
+}
+.dashboard_small_card .card_body{
+    background-color: #fff;
+    border-radius: 15px;
+    text-align: center;
+    padding: 10px;
+    margin: 10px;
+}
+.dashboard_small_card .profit_background{
+    background-image: url('../../../assets/back1.jpg');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    border-radius: 15px;
+}
+.dashboard_small_card h2{
+    font-weight: 800;
+    /* font-size: 10px; */
+}
+.dashboard_small_card p{
+    float: right;
+    font-size: 12px;
+    font-weight: 600;
+}
+.stock .c_card{
+    width: 25%;
+    padding: 0px;
+}
+.dashboard_card .r_card{
+padding: 0px;
+}
+.stock .stock_item{
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    border-radius: 15px;
+    transition: all 0.3s;
+    padding: 10px;
+    margin: 6px;
+}
+
+.stock .stock_anaysis_item{
+    border-radius: 15px;
+    transition: all 0.3s;
+    margin: 6px;
+    padding: 10px;
+}
+
+.stock_img{
+    height: 230px;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+    border-radius: 15px;
+    margin-bottom: 10px;
+
+}
+
+.stock .lc_card{
+    width: 75%;
+    border: 1px solid #efefef;
+    /* margin: 20px; */
+}
+
+.dashboard-icon{
+    color: rgb(14, 199, 29);
+    padding: 15px;
+    background-color: rgb(221, 255, 224);
+    border-radius: 100%;
+    box-shadow: -1px 15px 17px -8px rgba(31, 197, 31, 0.548);
+}
+.dashboard-icon-small{
+    color: rgb(14, 199, 29);
+    padding: 10px;
+    background-color: rgb(221, 255, 224);
+    border-radius: 20%;
+    box-shadow: -1px 15px 17px -8px rgba(31, 197, 31, 0.397);
+}
+.dashboard_card hr{
+    border: 1px solid rgb(198, 248, 202);
+}
+
+
+
+
+/*------ media query ---*/
+
+@media(max-width: 767px) {
+.stock .c_card{
+    width: 100%;
+    
+  }
+  .stock .lc_card{
+    width: 100%;
+}
+.dashboard_small_card .c_card{
+    width: 100%;
+}
+   }

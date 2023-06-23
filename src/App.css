@@ -127,7 +127,7 @@ padding: 10px;
  
    /*---- input design ends here ---*/
    a{
-     color: #000;
+     color: rgb(43, 206, 84);
    }
 
 ul{
@@ -149,4 +149,11 @@ a{
       margin: 0px 10px;
       padding: 5px;
     }
+    .sidebar{
+      display: none;
+    }
+    .contain{
+      margin-left: 0px!important;
+  
+  }
    }
