@@ -13,10 +13,11 @@
     overflow-x: hidden; /* Disable horizontal scroll */
 }
 .contain{
-    padding: 30px 20px;
+    padding: 20px 20px;
     background-color: rgb(247, 253, 248);
     width: 100%;
     margin-left: 290px;
+    min-height: 800px;
 
 }
 .sidebar ul {
@@ -50,6 +51,7 @@
     float: right;
     color: rgb(14, 199, 29);
 }
+
 .contain .content{
     padding-top: 50px;
 }
@@ -58,4 +60,9 @@
     border-radius: 10px;
     padding: 10px;
     margin-bottom: 20px;
+}
+@media(max-width: 900px){
+    .contain .head{
+        display: none;
+    }
 }

@@ -182,12 +182,9 @@ const UserDashboard = () => {
 				/* onRef={ref => this.chart = ref} */
 			/>
                 </div>
-
-               
-               
         </div>
-        
       </div>
+      
     </>
   )
 }

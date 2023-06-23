@@ -1,21 +1,20 @@
 import React from 'react';
+import AdminSidebarData from './AdminSidebarData';
 import { Link } from 'react-router-dom';
 import "./Sidebar.css";
 import {HiOutlineUserCircle} from "react-icons/hi";
 import {IoMdLogOut} from "react-icons/io";
-import UserSidebarData from './UserSidebarData';
-import MobileSidebar from './MobileSidebar';
+import AdminMobileSidebar from './AdminMobileSidebar';
 
-
-const Sidebar = ({children}) => {
+const AdminSidebar = ({children}) => {
   return (
-      <>
-      <MobileSidebar />
+    <>
+       <AdminMobileSidebar />
     <div className='wrap'>
         <div className='sidebar'>
             <h2>RainyVest</h2>
         <ul className='ul_hover'>
-            <UserSidebarData/>
+            <AdminSidebarData/>
             
         </ul>
         <ul className='logout'>
@@ -37,4 +36,4 @@ const Sidebar = ({children}) => {
   )
 }
 
-export default Sidebar
+export default AdminSidebar
