@@ -23,6 +23,9 @@ import AdminWithdraw from './pages/account/withdraw/AdminWithdraw';
 import AdminPayments from './pages/account/payments/AdminPayments';
 import AdminStock from './pages/account/stock/AdminStock';
 import AdminProducts from './pages/account/products/AdminProducts';
+import MarketItem from './pages/account/market/MarkekItem';
+import MarketPayment from './pages/account/market/MarketPayment';
+import AdminAddProduct from './pages/account/products/AdminAddProduct';
 
 function App() {
   return (
@@ -100,6 +103,22 @@ function App() {
           </>
         }
         />
+         <Route path='/market/:url' element={
+          <>
+          <Sidebar >
+            <MarketItem />
+          </Sidebar>
+          </>
+        }
+        />
+         <Route path='/market-payment/:transactionCode' element={
+          <>
+          <Sidebar >
+            <MarketPayment />
+          </Sidebar>
+          </>
+        }
+        />
         <Route path='/stock' element={
           <>
           <Sidebar>
@@ -145,6 +164,14 @@ function App() {
           <>
           <AdminSidebar >
             <AdminProducts />
+          </AdminSidebar>
+          </>
+        }
+        />
+         <Route path="/admin/add-product" element={
+          <>
+          <AdminSidebar >
+            <AdminAddProduct />
           </AdminSidebar>
           </>
         }

@@ -37,3 +37,19 @@ table tbody tr:hover{
 .profile_footer{
     text-align: right;
 }
+
+/* this is market-payemnt section */
+.payment_terms {
+    padding: 20px;
+    border-left: 2px solid rgb(31, 184, 56);
+}
+
+/* dashboard form group */
+.dashboard_form_group{
+    display: flex;
+    flex-direction: row;
+    padding: 10px;
+}
+.dashboard_col{
+    width: 50%;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import palm1  from "../../../assets/palm-1.jpg";
 import {FaStore} from "react-icons/fa";
+import { Link } from 'react-router-dom';
 
 const Market = () => {
   return (
@@ -18,7 +19,7 @@ const Market = () => {
                     <p>Stock market has fallen, buy stock now and make maximum profit at ease.</p>
                     <br/>
                     <div className='text-center'>
-                    <button className='btn-success'>Viw More</button>
+                    <Link to="/market/uasiuas"><button className='btn-success'>Viw More</button></Link>
                     </div>
                 </div>
                 </div>

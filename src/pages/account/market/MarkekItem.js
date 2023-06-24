@@ -1,11 +1,11 @@
 import React from 'react';
-import {BiArrowFromLeft} from "react-icons/bi";
 import { TbBrandGoogleAnalytics } from 'react-icons/tb';
 import {CanvasJSChart} from 'canvasjs-react-charts';
 import palm1  from "../../../assets/palm-1.jpg";
+import { Link } from 'react-router-dom';
 
 
-const AdminStock = () => {
+const MarketItem = () => {
 
   const options = {
     animationEnabled: true,
@@ -56,64 +56,40 @@ const AdminStock = () => {
 
   return (
     <>
-      <h2>Stocks</h2>
+      <h2>Market Product </h2>
       
       <br/>
       <div className='dashboard_card'>
-          <h4><TbBrandGoogleAnalytics className='dashboard-icon-small' size={20} /> Stock Analysis</h4>
+          <h4><TbBrandGoogleAnalytics className='dashboard-icon-small' size={20} /> Product Analysis</h4>
             <br/>
             <div className='stock r_card'>
+                    <div className='lc_card'>
+                  <CanvasJSChart options = {options}/>
+                    </div>
+
                     <div className='c_card'>
                         <div className='stock_anaysis_item'>
                         <div className='stock_img' style={{backgroundImage: `url(${palm1})`}}>
                         </div>
                         <h4>Palm Oil Stock</h4>
-                        <b>N9,000 <BiArrowFromLeft color='green' size={20}/> N16,000</b>
-                        <br/>
+                        <h2>N9,000</h2>
                         <hr/>
-                        <h4>By Offiong Bassey</h4>
-                        <b>25th March, 2021 <BiArrowFromLeft color='green' size={20}/> 25th Sep, 2021 </b>
-                        <br/>
-                        <hr/>
+                        <p>Palm Oil Grade 1 is a very good product which price falls in the rainy season and increases in the dry season</p>
                         <div className='text-center'>
-                          <br/>
-                        <button className='btn-success'>Active</button> <button className='btn-danger'>Sold</button>
+                        <br/>
+                        <b>Quantity</b>
+                        <input type='number' name='quantity' placeholder='How many do you want?' />
+                        <Link to="/market-payment/89789789"><button className='btn-success'>Buy and Store</button> </Link>
                         </div>
                     </div>
                     </div>
 
-                    <div className='lc_card'>
-                  <CanvasJSChart options = {options}/>
-                    </div>
+                    
             </div>
-            <br/>
-            <div className='stock r_card'>
-                    <div className='c_card'>
-                        <div className='stock_anaysis_item'>
-                        <div className='stock_img' style={{backgroundImage: `url(${palm1})`}}>
-                        </div>
-                        <h4>Palm Oil Stock</h4>
-                        <b>N9,000 <BiArrowFromLeft color='green' size={20}/> N16,000</b>
-                        <br/>
-                        <hr/>
-                        <h4>By Offiong Bassey</h4>
-                        <b>25th March, 2021 <BiArrowFromLeft color='green' size={20}/> 25th Sep, 2021 </b>
-                        <br/>
-                        <hr/>
-                        <div className='text-center'>
-                          <br/>
-                        <button className='btn-success'>Active</button> <button className='btn-danger'>Sold</button>
-                        </div>
-                    </div>
-                    </div>
-
-                    <div className='lc_card'>
-                  <CanvasJSChart options = {options}/>
-                    </div>
-            </div>
+            
       </div>
     </>
   )
 }
 
-export default AdminStock
+export default MarketItem
