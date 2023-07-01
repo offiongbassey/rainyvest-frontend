@@ -176,7 +176,7 @@ const UserDashboard = () => {
                     </div>
                 </div>
                 </div>
-
+    
                 <div className='lc_card'>
                <CanvasJSChart options = {options}
 				/* onRef={ref => this.chart = ref} */

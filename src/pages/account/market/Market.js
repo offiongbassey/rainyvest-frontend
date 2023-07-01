@@ -24,47 +24,6 @@ const Market = () => {
                 </div>
                 </div>
 
-                <div className='c_card'>
-                <div className='stock_item'>
-                <div className='stock_img' style={{backgroundImage: `url(${palm1})`}}>
-                </div>
-                    <h4>Palm Oil Stock</h4>
-                    <b>N9,000</b>
-                    <p>Stock market has fallen, buy stock now and make maximum profit at ease.</p>
-                    <br/>
-                    <div className='text-center'>
-                    <button className='btn-success'>Sell Out</button>
-                    </div>
-                </div>
-                </div>
-
-                <div className='c_card'>
-                <div className='stock_item'>
-                <div className='stock_img' style={{backgroundImage: `url(${palm1})`}}>
-                </div>
-                    <h4>Palm Oil Stock</h4>
-                    <b>N9,000</b>
-                    <p>Stock market has fallen, buy stock now and make maximum profit at ease.</p>                    
-                    <br/>
-                    <div className='text-center'>
-                    <button className='btn-success'>Sell Out</button>
-                    </div>
-                </div>
-                </div>
-
-                <div className='c_card'>
-                <div className='stock_item'>
-                <div className='stock_img' style={{backgroundImage: `url(${palm1})`}}>
-                </div>
-                    <h4>Palm Oil Stock</h4>
-                    <b>N9,000</b>
-                    <p>Stock market has fallen, buy stock now and make maximum profit at ease.</p>
-                    <br/>
-                    <div className='text-center'>
-                    <button className='btn-success'>Sell Out</button>
-                    </div>
-                </div>
-                </div>
         </div>
         
       </div>

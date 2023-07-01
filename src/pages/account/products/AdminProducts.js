@@ -87,7 +87,6 @@ const AdminProducts = () => {
                     <div className='lc_card'>
                   <CanvasJSChart options = {options}/>
                     </div>
-            </div>
             <br/>
             <div className='stock r_card'>
                     <div className='c_card'>
@@ -106,10 +105,6 @@ const AdminProducts = () => {
                     </div>
                     </div>
 
-                    <div className='lc_card'>
-                  <CanvasJSChart options = {options}/>
-                    </div>
-            </div>
       </div>
     </>
   )
