@@ -6,6 +6,7 @@ import "./MobileSidebar.css";
 import { IoMdLogOut } from 'react-icons/io';
 import UserSidebarData from './UserSidebarData';
 import { HiOutlineUserCircle } from 'react-icons/hi';
+import LogoutButton from './LogoutButton';
 
 
 const MobileSidebar = () => {
@@ -22,7 +23,7 @@ const MobileSidebar = () => {
             <ul className={MobileMenu ? "nav-links-MobileMenu" : "link f_flex capitalize"} onClick={() => setMobileMenu(false)}>
                 <UserSidebarData />
               <li>
-                <Link to="/signup"><IoMdLogOut size={20} />  <button className='btn-success-out'>Logout</button></Link>
+                <Link to="/signup"><IoMdLogOut size={20} />   <LogoutButton /> </Link>
               </li>
             </ul>
             <Link to="/profile"> <HiOutlineUserCircle className='prof-icon' size={40} /></Link>

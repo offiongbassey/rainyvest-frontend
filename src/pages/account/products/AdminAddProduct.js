@@ -1,13 +1,56 @@
-import React from 'react';
-import { TbBrandGoogleAnalytics } from 'react-icons/tb';
-import palm1  from "../../../assets/palm-1.jpg";
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import ProductForm from '../../../components/Product/ProductForm/ProductForm';
+import { createProduct, selectIsLoading } from '../../../redux/features/product/productSlice';
+import Loader from "../../../components/loader/Loader";
+import RedirectLoggedOutUser from '../../../middleware/redirectLoggedOutUser';
 
-
+const initialState = {
+    name: "",
+    price: "",
+    quantity: "",
+    description: ""
+}
 const AdminAddProduct = () => {
+  RedirectLoggedOutUser("/login");
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const [product, setProduct] = useState(initialState);
+    const [productImage, setProductImage] = useState("");
+    const [imagePreview, setImagePreview] = useState(null);
+    const isLoading = useSelector(selectIsLoading);
 
+    const {name, price, quantity, description } = product;
+    const handleInputChange = (e)  => {
+        const {name, value} = e.target;
+        setProduct({...product, [name] : value});
+    }
+    const handleImageChange = (e) => {
+        setProductImage(e.target.files[0])
+        setImagePreview(URL.createObjectURL(e.target.files[0]));
+    }
+
+    const saveProduct = async (e) => {
+        e.preventDefault();
+        const formData = new FormData();
+        formData.append("name", name);
+        formData.append("price", price);
+        formData.append("quantity", quantity);
+        formData.append("image", productImage);
+        formData.append("description", description);
+        try {
+            await dispatch(createProduct(formData));
+            navigate('/admin/products');
+        } catch (error) {
+            isLoading(false);
+        }
+    }
  
   return (
     <>
+    {isLoading && <Loader />}
       <h2>Products 
         <div className='float-right'>
       <button className='btn-success'>Add New</button>
@@ -16,49 +59,7 @@ const AdminAddProduct = () => {
       
       <br/>
       <div className='dashboard_card'>
-          <h4><TbBrandGoogleAnalytics className='dashboard-icon-small' size={20} /> Product Analysis</h4>
-            <br/>
-            <div className='stock r_card'>
-                    <div className='c_card'>
-                        <div className='stock_anaysis_item'>
-                        <div className='stock_img' style={{backgroundImage: `url(${palm1})`}}>
-                        </div>
-                        <div className='text-center'>
-                            <input type='file' name='image' />
-                        </div>
-                    </div>
-                    </div>
-
-                    <div className='lc_card'>
-                        <div className='dashboard_form_group'>
-                            <div className='dashboard_col'>
-                                <label>Title:</label>
-                                <br/>
-                                <input type='text' name="name" placeholder='Product Name' />
-                            </div>
-                            <div className='dashboard_col'>
-                            <label>Price:</label>
-                                <br/>
-                                <input type='number' name="price" placeholder='Product Price' />
-                            </div>
-                        </div>
-                        <div className='dashboard_form_group'>
-                            <div className='dashboard_col'>
-                            <label>Quantity:</label>
-                                <br/>
-                                <input type='number' name="quantity" placeholder='Quantity' />
-                            </div>
-                            <div className='dashboard_col'>
-                            <label>Description:</label>
-                                <br/>
-                                <textarea type="text" name="description" rows="2" ></textarea>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-                    <div className='text-center'>
-                        <button className='btn-success'>Add Product</button>
-                    </div>
+        <ProductForm product={product} productImage={productImage} imagePreview={imagePreview} handleInputChange={handleInputChange} handleImageChange={handleImageChange} saveProduct={saveProduct} />
       </div>
     </>
   )

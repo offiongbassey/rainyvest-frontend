@@ -125,7 +125,18 @@ padding: 10px;
      padding: 0px 20px 0 20px;
      font-size: 16px;
    }
- 
+   select{
+    width: 92%;
+    height: 50px;
+    border-radius: 4px;
+    border: 1px solid #efefef;
+    background-color: #fff;
+    margin-bottom: 10px;
+    padding: 0px 20px 0 20px;
+    font-size: 16px;
+  }
+
+  
    textarea{
     width: 80%;
     height: 50px;
@@ -150,6 +161,35 @@ a{
   text-decoration: none;
 }
 
+
+.pagination {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2rem 0;
+  font-size: 1rem;
+}
+
+.pagination .page-num {
+  padding: 8px 15px;
+  cursor: pointer;
+  border-radius: 20px;
+  font-weight: normal;
+  color: rgb(14, 109, 22);
+  border: 1px solid rgb(14, 199, 29);
+  margin: 2px;
+}
+
+.pagination .page-num:hover {
+  color: #fff;
+  background-color:rgb(14, 199, 29);
+}
+.activePage {
+  color: #fff;
+  background-color: rgb(14, 199, 29);
+  height: 100%;
+}
 
    @media(max-width: 767px) {
 

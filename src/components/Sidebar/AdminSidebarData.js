@@ -20,11 +20,8 @@ const AdminSidebarData = () => {
             <Link to="/admin/stock">
                 <li><MdProductionQuantityLimits  size={20}/> Stock</li>
             </Link>
-            <Link to="/admin/payments">
-                <li><AiOutlineTransaction size={20} /> Payments</li>
-            </Link>
-            <Link to="/admin/withdraws">
-                <li><AiOutlineTransaction size={20} /> Withdraws</li>
+            <Link to="/admin/transactions">
+                <li><AiOutlineTransaction size={20} /> Transactions</li>
             </Link>
             <Link to="/admin/profile">
                 <li><FaUserTie size={20} /> Profile</li>

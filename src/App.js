@@ -1,5 +1,8 @@
 import './App.css';
 import {BrowserRouter, Routes, Route} from "react-router-dom";
+import axios from "axios";
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import Home from './pages/home/Home';
 import Navbar from './components/Navbar/Navbar';
 import Footer from './components/Footer/Footer';
@@ -19,17 +22,39 @@ import AdminSidebar from './components/Sidebar/AdminSidebar';
 import AdminDashboard from './pages/account/dashboard/AdminDashboard';
 import AdminUsers from './pages/account/users/AdminUsers';
 import AdminProfile from './pages/account/profile/AdminProfile';
-import AdminWithdraw from './pages/account/withdraw/AdminWithdraw';
-import AdminPayments from './pages/account/payments/AdminPayments';
 import AdminStock from './pages/account/stock/AdminStock';
 import AdminProducts from './pages/account/products/AdminProducts';
 import MarketItem from './pages/account/market/MarkekItem';
 import MarketPayment from './pages/account/market/MarketPayment';
 import AdminAddProduct from './pages/account/products/AdminAddProduct';
+import ConfirmEmail from './pages/auth/ConfirmEmail';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getLoginStatus } from './services/authService';
+import { SET_LOGIN } from './redux/features/auth/authSlice';
+import AdminEditProduct from './pages/account/products/AdminEditProduct';
+import TestChart from './pages/account/products/TestChart';
+import StockItem from './pages/account/stock/StockItem';
+import ChangePin from './pages/auth/ChangePin';
+import AdminTransactions from './pages/account/transaction/AdminTransactions';
+import AdminStockItem from './pages/account/stock/AdminStockItem';
+import AdminViewProduct from './pages/account/products/AdminViewProduct';
+import AdminViewUserProfile from './pages/account/profile/AdminViewUserProfile';
+import AdminUserTransactions from './pages/account/profile/AdminUserTransactions';
+
+axios.defaults.withCredentials = true;
 
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    async function loginStatus(){
+      const status = await getLoginStatus();
+      dispatch(SET_LOGIN(status));
+    }loginStatus();
+  },[dispatch]);
   return (
     <BrowserRouter>
+     <ToastContainer />
       <Routes>
         <Route path='/' element={
           <>
@@ -79,7 +104,7 @@ function App() {
           </>
         }
         />
-        <Route path="/change-password" element={
+        <Route path="/resetpassword/:token" element={
           <>
           <Navbar />
           <ResetPassword />
@@ -87,6 +112,24 @@ function App() {
           </>
         }
         />
+        <Route path="/reset-pin/:token" element={
+          <>
+          <Navbar />
+          <ChangePin />
+          <Footer/>
+          </>
+        }
+        />
+        
+        <Route path="/confirm-email/:token" element={
+          <>
+          <Navbar />
+          <ConfirmEmail />
+          <Footer />
+          </>
+        }
+        />
+
         <Route path="/dashboard" element={
           <>
           <Sidebar>
@@ -111,10 +154,18 @@ function App() {
           </>
         }
         />
-         <Route path='/market-payment/:transactionCode' element={
+         <Route path='/market-payment/:stockCode' element={
           <>
           <Sidebar >
             <MarketPayment />
+          </Sidebar>
+          </>
+        }
+        />
+        <Route path='/stock/:stockCode' element={
+          <>
+          <Sidebar>
+            <StockItem />
           </Sidebar>
           </>
         }
@@ -176,6 +227,46 @@ function App() {
           </>
         }
         />
+         <Route path="/admin/test" element={
+          <>
+          <AdminSidebar >
+            <TestChart />
+          </AdminSidebar>
+          </>
+        }
+        />
+         <Route path="/admin/edit-product/:id" element={
+          <>
+          <AdminSidebar >
+            <AdminEditProduct />
+          </AdminSidebar>
+          </>
+        }
+        />
+        <Route path='/admin/product/:id' element={
+          <>
+          <AdminSidebar>
+            <AdminViewProduct />
+          </AdminSidebar>
+          </>
+        }
+        />
+        <Route path='/admin/user-transactions/:id' element={
+          <>
+          <AdminSidebar>
+            <AdminUserTransactions />
+          </AdminSidebar>
+          </>
+        }
+        />
+         <Route path='/admin/user-profile/:id' element={
+          <>
+          <AdminSidebar>
+            <AdminViewUserProfile />
+          </AdminSidebar>
+          </>
+        }
+        />
         <Route path="/admin/stock" element={
           <>
           <AdminSidebar >
@@ -184,18 +275,18 @@ function App() {
           </>
         }
         />
-        <Route path="/admin/payments" element={
+        <Route path='/admin/stock/:stockCode' element={
           <>
-          <AdminSidebar >
-            <AdminPayments />
+          <AdminSidebar>
+            <AdminStockItem />
           </AdminSidebar>
           </>
         }
         />
-        <Route path="/admin/withdraws" element={
+        <Route path="/admin/transactions" element={
           <>
           <AdminSidebar >
-            <AdminWithdraw />
+            <AdminTransactions />
           </AdminSidebar>
           </>
         }

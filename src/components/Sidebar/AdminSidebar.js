@@ -5,6 +5,7 @@ import "./Sidebar.css";
 import {HiOutlineUserCircle} from "react-icons/hi";
 import {IoMdLogOut} from "react-icons/io";
 import AdminMobileSidebar from './AdminMobileSidebar';
+import LogoutButton from './LogoutButton';
 
 const AdminSidebar = ({children}) => {
   return (
@@ -18,14 +19,12 @@ const AdminSidebar = ({children}) => {
             
         </ul>
         <ul className='logout'>
-        <Link to="/logout">
-                <li><IoMdLogOut size={20} />  <button className='btn-success-out'>Logout</button></li>
-            </Link>
+                <li><IoMdLogOut size={20} />   <LogoutButton /> </li>
         </ul>
      </div>
      <div className='contain'>
             <div className='head'>
-               <Link to="/profile"> <HiOutlineUserCircle className='prof-icon' size={40} /></Link>
+               <Link to="/admin/profile"> <HiOutlineUserCircle className='prof-icon' size={40} /></Link>
             </div>
             <div className='content'>
                 {children}

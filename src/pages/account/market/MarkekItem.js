@@ -1,91 +1,134 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { TbBrandGoogleAnalytics } from 'react-icons/tb';
-import {CanvasJSChart} from 'canvasjs-react-charts';
 import palm1  from "../../../assets/palm-1.jpg";
-import { Link } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { getMarketItem } from '../../../services/marketService';
+import Loader from '../../../components/loader/Loader';
+import RedirectLoggedOutUser from '../../../middleware/redirectLoggedOutUser';
+import {Line} from "react-chartjs-2";
+import { Chart as ChartJS, LineElement, CategoryScale, LinearScale, PointElement, Legend, Tooltip } from "chart.js";
+import { toast } from 'react-toastify';
+import { createStock } from '../../../services/stockService';
+
+ChartJS.register(LineElement, CategoryScale, LinearScale,  PointElement, Legend, Tooltip)
+
+
 
 
 const MarketItem = () => {
+  RedirectLoggedOutUser("/login");
+  const navigate = useNavigate();
+  const [quantity, setQuantity] = useState('');
+  const [market, setMarket] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const {url} = useParams();
 
-  const options = {
-    animationEnabled: true,
-    exportEnabled: true,
-    theme: "light2", // "light1", "dark1", "dark2"
-    title:{
-      text: "Analysis"
-    },
-    axisY: {
-      title: "Market Price",
-      suffix: "%"
-    },
-    axisX: {
-      title: "Daily Data",
-      prefix: "W",
-      interval: 2
-    },
-    data: [{
-      type: "line",
-      toolTipContent: "Week {x}: {y}%",
-      dataPoints: [
-        { x: 1, y: 64 },
-        { x: 2, y: 61 },
-        { x: 3, y: 64 },
-        { x: 4, y: 62 },
-        { x: 5, y: 64 },
-        { x: 6, y: 60 },
-        { x: 7, y: 58 },
-        { x: 8, y: 59 },
-        { x: 9, y: 53 },
-        { x: 10, y: 54 },
-        { x: 11, y: 61 },
-        { x: 12, y: 20 },
-        { x: 13, y: 35 },
-        { x: 14, y: 40 },
-        { x: 15, y: 36 },
-        { x: 16, y: 90 },
-        { x: 17, y: 59.5 },
-        { x: 18, y: 63 },
-        { x: 19, y: 58 },
-        { x: 20, y: 54 },
-        { x: 21, y: 59 },
-        { x: 22, y: 64 },
-        { x: 23, y: 59 }
-      ]
-    }]
+  useEffect(() => {
+    setIsLoading(true);
+      async function getSingleItem(){
+      const data = await getMarketItem(url);
+        setMarket(data);
+      setIsLoading(false);
+    }
+    getSingleItem()
+  }, [url]);
+
+   let data = '';
+   let options = '';
+  if(market !== ""){
+    data = {
+    labels: market.dailyprices.map(date => date.createdAt),
+    datasets: [
+      {
+        label: 'Market Analysis (₦)',
+        data: market.dailyprices.map(daily => daily.price),
+        backgroundColor: 'white',
+        borderColor: '#0ec71d',
+        pointBorderColor: '#0ec71d',
+        fill: true,
+        tension: 0.4,
+  
+      }
+    ]
   }
+  
+    options = {
+    plugins: {
+      legend: true
+    },
+    scales: {
+      y: {
+        // min: 3,
+        // max: 6
+      }
+    }
+  }
+  
+}
+
+
+
+const addStock = async(e) => {
+  e.preventDefault();
+  if(!quantity){
+    return toast.error("Please Provide Number of Stocks that you want.");
+  }
+  if(quantity < 1){
+    return toast.error("Stock quantity cannot be less than 1");
+  }
+  const userData = {
+    quantity
+  }
+ setIsLoading(true);
+ const data = await createStock({url, userData});
+ if(data.status === 201){
+ navigate(`/market-payment/${data.data.stockCode}`);
+}
+setIsLoading(false);
+}
 
   return (
     <>
+    {isLoading && <Loader />}
       <h2>Market Product </h2>
       
       <br/>
       <div className='dashboard_card'>
           <h4><TbBrandGoogleAnalytics className='dashboard-icon-small' size={20} /> Product Analysis</h4>
             <br/>
+            {!isLoading && (
             <div className='stock r_card'>
-                    <div className='lc_card'>
-                  <CanvasJSChart options = {options}/>
-                    </div>
 
+                    <div className='lc_card'>
+                      {market === "" ? (
+                      <p></p>
+                      ) : (
+                        <Line  data={data} options={options}></Line>
+                    )}
+                    </div>
+                     
                     <div className='c_card'>
                         <div className='stock_anaysis_item'>
-                        <div className='stock_img' style={{backgroundImage: `url(${palm1})`}}>
+                        <div className='stock_img' style={{backgroundImage: `url(${market?.image})`}}>
                         </div>
-                        <h4>Palm Oil Stock</h4>
-                        <h2>N9,000</h2>
+                        <h4>{market?.name}</h4>
+                        {market === '' ? ('') : (
+                        <h2>{`₦${market?.price.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
+                        )}
                         <hr/>
-                        <p>Palm Oil Grade 1 is a very good product which price falls in the rainy season and increases in the dry season</p>
+                        <p>{market?.description}</p>
                         <div className='text-center'>
                         <br/>
                         <b>Quantity</b>
-                        <input type='number' name='quantity' placeholder='How many do you want?' />
-                        <Link to="/market-payment/89789789"><button className='btn-success'>Buy and Store</button> </Link>
+                        <input type='number' name='quantity' value={quantity} onChange={(e) => setQuantity(e.target.value)} placeholder='How many do you want?' />
+                        <button type='submit' onClick={addStock} className='btn-success'>Buy and Store</button>
                         </div>
                     </div>
                     </div>
 
                     
             </div>
+            )}
             
       </div>
     </>

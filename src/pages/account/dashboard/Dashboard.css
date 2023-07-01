@@ -32,6 +32,7 @@
 }
 .dashboard_card .r_card{
 padding: 0px;
+flex-wrap: wrap;
 }
 .stock .stock_item{
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;

@@ -1,62 +1,36 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import {MdOutlineStore} from "react-icons/md";
 import {BiArrowFromLeft, BiRightArrow} from "react-icons/bi";
 import { TbBrandGoogleAnalytics } from 'react-icons/tb';
-import {CanvasJSChart} from 'canvasjs-react-charts';
 import palm1  from "../../../assets/palm-1.jpg";
+import RedirectLoggedOutUser from '../../../middleware/redirectLoggedOutUser';
+import { useSelector } from 'react-redux';
+import { selectUserName } from '../../../redux/features/auth/authSlice';
+import { adminDashboard } from '../../../services/authService';
+import Loader from '../../../components/loader/Loader';
+import { FaStore } from 'react-icons/fa';
+import { Link } from 'react-router-dom';
 
 const AdminDashboard = () => {
+  RedirectLoggedOutUser('/login');
+  const userName = useSelector(selectUserName);
+    const [resources, setResources] = useState("");
+    const [isLoading, setIsLoading] = useState(false);
 
-  const options = {
-    animationEnabled: true,
-    exportEnabled: true,
-    theme: "light2", // "light1", "dark1", "dark2"
-    title:{
-      text: "Analysis"
-    },
-    axisY: {
-      title: "Market Price",
-      suffix: "%"
-    },
-    axisX: {
-      title: "Daily Data",
-      prefix: "W",
-      interval: 2
-    },
-    data: [{
-      type: "line",
-      toolTipContent: "Week {x}: {y}%",
-      dataPoints: [
-        { x: 1, y: 64 },
-        { x: 2, y: 61 },
-        { x: 3, y: 64 },
-        { x: 4, y: 62 },
-        { x: 5, y: 64 },
-        { x: 6, y: 60 },
-        { x: 7, y: 58 },
-        { x: 8, y: 59 },
-        { x: 9, y: 53 },
-        { x: 10, y: 54 },
-        { x: 11, y: 61 },
-        { x: 12, y: 20 },
-        { x: 13, y: 35 },
-        { x: 14, y: 40 },
-        { x: 15, y: 36 },
-        { x: 16, y: 90 },
-        { x: 17, y: 59.5 },
-        { x: 18, y: 63 },
-        { x: 19, y: 58 },
-        { x: 20, y: 54 },
-        { x: 21, y: 59 },
-        { x: 22, y: 64 },
-        { x: 23, y: 59 }
-      ]
-    }]
-  }
+    useEffect(() => {
+      setIsLoading(true);
+      async function getRes(){
+          const data = await adminDashboard();
+          setResources(data);
+          setIsLoading(false);
+      }getRes();
+  }, []);
+if(resources !== ""){
 
   return (
     <>
-      <h2>Welcome Offiong!</h2>
+    {isLoading && <Loader />}
+      <h2>Welcome {userName}!</h2>
       <br/>
         <div className='dashboard_small_card'>
             <div className='r_card'>
@@ -66,7 +40,9 @@ const AdminDashboard = () => {
                         <br/>
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
-                        <h2>30</h2>
+                        {resources.productCount.map((item, index) => 
+                        <h2 key={index}>{`${item.productCount.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
+                        )}
                         </div>
                     </div>
                     <div className='c_card'>
@@ -75,7 +51,9 @@ const AdminDashboard = () => {
                         <br/>
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
-                        <h2>72</h2>
+                        {resources.activeStockCount.map((item, index) => 
+                        <h2 key={index}>{`${item.activeStockCount.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
+                        )}
                         </div>
                     </div>
                     
@@ -85,7 +63,9 @@ const AdminDashboard = () => {
                         <br />
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
-                        <h2>50</h2>
+                        {resources.soldStockCount.map((item, index) => 
+                        <h2 key={index}>{`${item.soldStockCount.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
+                        )}
                     </div>
                     </div>
             </div>
@@ -93,20 +73,24 @@ const AdminDashboard = () => {
             <div className='r_card'>
                     <div className='c_card'>
                         <div className='card_body'>
-                        <p> <BiRightArrow size={15}/> Stock Bought</p>
+                        <p> <BiRightArrow size={15}/> Stock Sold</p>
                         <br/>
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
-                        <h2>N20,000</h2>
+                        {resources.stockSold.map((item, index) =>
+                        <h2 key={index}>{`₦${item.totalSold.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
+                        )}
                         </div>
                     </div>
                     <div className='c_card'>
                     <div className='card_body'>
-                        <p>  <BiRightArrow size={15}/> Stock Sold</p>
+                        <p>  <BiRightArrow size={15}/> Active Stock</p>
                         <br/>
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
-                        <h2>N52,000</h2>
+                        {resources.activeStock.map((item, index) => 
+                        <h2 key={index}>{`₦${item.totalActive.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
+                        )}
                         </div>
                     </div>
                     
@@ -116,61 +100,38 @@ const AdminDashboard = () => {
                         <br />
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
-                        <h2>N32,000</h2>
+                        {resources.stockProfit.map((item, index) => 
+                        <h2 key={index}>{`₦${item.totalProfit.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
+                        )}
                     </div>
                     </div>
             </div>
         </div>
 
         <div className='dashboard_card'>
-          <h4><TbBrandGoogleAnalytics className='dashboard-icon-small' size={20} /> Product Analysis</h4>
-            <br/>
-            <div className='stock r_card'>
-                    <div className='c_card'>
-                        <div className='stock_anaysis_item'>
-                        <div className='stock_img' style={{backgroundImage: `url(${palm1})`}}>
-                        </div>
-                        <h4>Palm Oil Stock</h4>
-                        <b>N9,000 <BiArrowFromLeft color='green' size={20}/> N16,000</b>
-                        <br/>
-                        <hr/>
-                        <p>You have gotten close to 30% profit. Would you love to sell out your stock?</p>
-                        <div className='text-center'>
-                          <br/>
-                        <button className='btn-success'>Edit</button>
-                        </div>
+        <h4><FaStore className='dashboard-icon-small' size={20} /> Stock Market</h4>
+        <br/>
+        <div className='stock r_card'>
+            {resources.stocks.map((stock, index) => 
+                <div className='c_card' key={index}>
+                    <div className='stock_item'>
+                    <div className='stock_img' style={{backgroundImage: `url(${stock.product.image})`}}>
                     </div>
+                    <h4>{stock.product.name}</h4>
+                    <b>{`₦${stock.total.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</b>
+                    <p>{stock.product.description}</p>
+                    <br/>
+                    <div className='text-center'>
+                    <Link to={`/admin/stock/${stock.stockCode}`}><button className='btn-success'>View Analysis</button></Link>
                     </div>
-
-                    <div className='lc_card'>
-                  <CanvasJSChart options = {options}/>
-                    </div>
-            </div>
-            <br/>
-            <div className='stock r_card'>
-                    <div className='c_card'>
-                        <div className='stock_anaysis_item'>
-                        <div className='stock_img' style={{backgroundImage: `url(${palm1})`}}>
-                        </div>
-                        <h4>Palm Oil Stock</h4>
-                        <b>N9,000 <BiArrowFromLeft color='green' size={20}/> N16,000</b>
-                        <br/>
-                        <hr/>
-                        <p>You have gotten close to 30% profit. Would you love to sell out your stock?</p>
-                        <div className='text-center'>
-                        <br/>
-                        <button className='btn-success'>Edit</button>
-                        </div>
-                    </div>
-                    </div>
-
-                    <div className='lc_card'>
-                  <CanvasJSChart options = {options}/>
-                    </div>
-            </div>
+                </div>
+                </div>
+                )}
+        </div>
+        
       </div>
     </>
   )
-}
+}}
 
 export default AdminDashboard

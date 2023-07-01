@@ -6,6 +6,7 @@ import {AiOutlineCloseCircle, AiOutlineBars} from "react-icons/ai";
 import "./MobileSidebar.css";
 import { IoMdLogOut } from 'react-icons/io';
 import { HiOutlineUserCircle } from 'react-icons/hi';
+import LogoutButton from './LogoutButton';
 
 const AdminMobileSidebar = () => {
     const [MobileMenu, setMobileMenu] = useState(false);
@@ -21,7 +22,7 @@ const AdminMobileSidebar = () => {
         <ul className={MobileMenu ? "nav-links-MobileMenu" : "link f_flex capitalize"} onClick={() => setMobileMenu(false)}>
             <AdminSidebarData />
           <li>
-            <Link to="/logout"><IoMdLogOut size={20} />  <button className='btn-success-out'>Logout</button></Link>
+            <Link to="/logout"><IoMdLogOut size={20} />  <LogoutButton /> </Link>
           </li>
         </ul>
         <Link to="/admin/profile"> <HiOutlineUserCircle className='prof-icon' size={40} /></Link>

@@ -53,3 +53,9 @@ table tbody tr:hover{
 .dashboard_col{
     width: 50%;
 }
+.profile-box{
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+

@@ -5,6 +5,7 @@ import {HiOutlineUserCircle} from "react-icons/hi";
 import {IoMdLogOut} from "react-icons/io";
 import UserSidebarData from './UserSidebarData';
 import MobileSidebar from './MobileSidebar';
+import LogoutButton from './LogoutButton';
 
 
 const Sidebar = ({children}) => {
@@ -20,7 +21,7 @@ const Sidebar = ({children}) => {
         </ul>
         <ul className='logout'>
         <Link to="/logout">
-                <li><IoMdLogOut size={20} />  <button className='btn-success-out'>Logout</button></li>
+                <li><IoMdLogOut size={20} />   <LogoutButton /> </li>
             </Link>
         </ul>
      </div>
