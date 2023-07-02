@@ -10,6 +10,7 @@ import { selectUserName } from '../../../redux/features/auth/authSlice';
 import { myAnalysis, myInfo, userDashboard } from '../../../services/authService';
 import Loader from '../../../components/loader/Loader';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 
 const UserDashboard = () => {
@@ -30,6 +31,8 @@ const UserDashboard = () => {
         async function getAnalysis(){
             const data = await myAnalysis();
             setAnalysis(data);
+            toast.success(`here is the data ${data}`);
+            console.log(`here is the data ${data}`);
         }getAnalysis();
     }, []);
 
