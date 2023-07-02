@@ -32,7 +32,7 @@ if(resources !== ""){
     {isLoading && <Loader />}
       <h2>Welcome {userName}!</h2>
       <br/>
-        {/* <div className='dashboard_small_card'>
+        <div className='dashboard_small_card'>
             <div className='r_card'>
                     <div className='c_card'>
                         <div className='card_body'>
@@ -40,9 +40,8 @@ if(resources !== ""){
                         <br/>
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
-                        {resources.productCount.map((item, index) => 
-                        <h2 key={index}>{`${item.productCount.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
-                        )}
+                        
+                        <h2>0</h2>
                         </div>
                     </div>
                     <div className='c_card'>
@@ -51,9 +50,7 @@ if(resources !== ""){
                         <br/>
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
-                        {resources.activeStockCount.map((item, index) => 
-                        <h2 key={index}>{`${item.activeStockCount.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
-                        )}
+                        <h2>0</h2>
                         </div>
                     </div>
                     
@@ -63,9 +60,7 @@ if(resources !== ""){
                         <br />
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
-                        {resources.soldStockCount.map((item, index) => 
-                        <h2 key={index}>{`${item.soldStockCount.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
-                        )}
+                        <h2>0</h2>
                     </div>
                     </div>
             </div>
@@ -77,9 +72,7 @@ if(resources !== ""){
                         <br/>
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
-                        {resources.stockSold.map((item, index) =>
-                        <h2 key={index}>{`₦${item.totalSold.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
-                        )}
+                        <h2>₦0</h2>
                         </div>
                     </div>
                     <div className='c_card'>
@@ -88,9 +81,7 @@ if(resources !== ""){
                         <br/>
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
-                        {resources.activeStock.map((item, index) => 
-                        <h2 key={index}>{`₦${item.totalActive.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
-                        )}
+                        <h2>₦0</h2>
                         </div>
                     </div>
                     
@@ -100,13 +91,11 @@ if(resources !== ""){
                         <br />
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
-                        {resources.stockProfit.map((item, index) => 
-                        <h2 key={index}>{`₦${item.totalProfit.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
-                        )}
+                        <h2>₦0</h2>
                     </div>
                     </div>
             </div>
-        </div> */}
+        </div>
 
         <div className='dashboard_card'>
         <h4><FaStore className='dashboard-icon-small' size={20} /> Stock Market</h4>

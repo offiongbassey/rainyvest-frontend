@@ -31,8 +31,6 @@ const UserDashboard = () => {
         async function getAnalysis(){
             const data = await myAnalysis();
             setAnalysis(data);
-            toast.success(JSON.stringify(data));
-            console.log(JSON.stringify(data));
         }getAnalysis();
     }, []);
 
@@ -57,7 +55,7 @@ const UserDashboard = () => {
        </h2>
        )}
     <br/>
-        {/* <div className='dashboard_small_card'>
+        <div className='dashboard_small_card'>
             {isLoading && <Loader />}
             <div className='r_card'>
                     <div className='c_card'>
@@ -67,9 +65,7 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
                         <br/>
-                        <h2>
-                            {analysis !== "" ? (`₦${analysis.totalSold.toLocaleString(undefined, {maximumFactorDigits: 2})}`) : (`₦0`)} 
-                        </h2>
+                        <h2>₦0</h2>
                         </div>
                     </div>
                     <div className='c_card'>
@@ -79,11 +75,7 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
                         <br/>
-                        {resources.activeStock.map((item, index) => 
-                        <h2 key={index}>
-                            {item.totalActive === null ? (0) : (`₦${item.totalActive.toLocaleString(undefined, {maximumFactorDigits: 2})}`)} 
-                        </h2>
-                        )}
+                        <h2>₦0</h2>
                         </div>
                     </div>
                     
@@ -95,15 +87,11 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
                         <br/>
-                        {resources.stockProfit.map((item, index) => 
-                        <h2 key={index}>
-                            {item.totalProfit === null ? (0) : (`₦${item.totalProfit.toLocaleString(undefined, {maximumFactorDigits: 2})}`)}
-                        </h2>
-                        )}
+                        <h2>₦0</h2>
                     </div>
                     </div>
             </div>
-        </div> */}
+        </div>
       <div className='dashboard_card'>
         <h4><FaStore className='dashboard-icon-small' size={20} /> Stock Market</h4>
         <br/>
