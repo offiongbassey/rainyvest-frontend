@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import Loader from '../../../components/loader/Loader';
 import RedirectLoggedOutUser from '../../../middleware/redirectLoggedOutUser';
 import {MdGppGood, MdPending} from "react-icons/md";
-import { userDashboard } from '../../../services/authService';
+import { getMyStocks } from "../../../services/stockService";
 
 
 const UserDashboard = () => {
@@ -16,7 +16,7 @@ const UserDashboard = () => {
   useEffect(() => {
     setIsLoading(true);
     async function fetchStocks(){
-      const data = await userDashboard();
+      const data = await getMyStocks();
       setStocks(data);
       setIsLoading(false);
     }
