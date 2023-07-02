@@ -81,10 +81,6 @@ const Login = () => {
                 <button type='submit' className='btn-success'>Login</button>
             </div>
             <br/>
-            <div className='form-control'>
-                <p>Or Continue with:</p>
-                
-            </div>
             <p>Don't have an account? <Link to="/signup">SignUp</Link></p>
             
             <br/>
