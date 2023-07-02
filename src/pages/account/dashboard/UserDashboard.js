@@ -68,7 +68,7 @@ const UserDashboard = () => {
                         <br/>
                         <br/>
                         <h2>
-                            {analysis !== "" ? (`₦${analysis.totalSold.toLocaleString(undefined, {maximumFactorDigits: 2})}`) : (`₦0`)} 
+                            {/* {analysis !== "" ? (`₦${analysis.totalSold.toLocaleString(undefined, {maximumFactorDigits: 2})}`) : (`₦0`)}  */}
                         </h2>
                         </div>
                     </div>
