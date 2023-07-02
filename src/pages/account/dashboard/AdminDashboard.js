@@ -40,7 +40,6 @@ if(resources !== ""){
                         <br/>
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
-                        
                         <h2>0</h2>
                         </div>
                     </div>
