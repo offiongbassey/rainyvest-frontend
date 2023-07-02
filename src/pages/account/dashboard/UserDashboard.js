@@ -102,7 +102,7 @@ const UserDashboard = () => {
         {stocks.length > 1 ? (
         <div className='stock r_card'>
             {
-            stocks.map((stock, index) => 
+            stocks.map((stock, index) => { return (
                 <div className='c_card' key={index}>
                     <div className='stock_item'>
                     <div className='stock_img' style={{backgroundImage: `url(${stock.product.image})`}}>
@@ -116,6 +116,7 @@ const UserDashboard = () => {
                     </div>
                 </div>
                 </div>
+                )}
                 )
                 }
         </div>
