@@ -32,7 +32,7 @@ if(resources !== ""){
     {isLoading && <Loader />}
       <h2>Welcome {userName}!</h2>
       <br/>
-        <div className='dashboard_small_card'>
+        {/* <div className='dashboard_small_card'>
             <div className='r_card'>
                     <div className='c_card'>
                         <div className='card_body'>
@@ -106,7 +106,7 @@ if(resources !== ""){
                     </div>
                     </div>
             </div>
-        </div>
+        </div> */}
 
         <div className='dashboard_card'>
         <h4><FaStore className='dashboard-icon-small' size={20} /> Stock Market</h4>
