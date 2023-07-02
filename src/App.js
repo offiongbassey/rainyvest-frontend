@@ -41,6 +41,7 @@ import AdminStockItem from './pages/account/stock/AdminStockItem';
 import AdminViewProduct from './pages/account/products/AdminViewProduct';
 import AdminViewUserProfile from './pages/account/profile/AdminViewUserProfile';
 import AdminUserTransactions from './pages/account/profile/AdminUserTransactions';
+import NewUserDashboard from './pages/account/newDashboard.js/NewUserDashboard';
 
 axios.defaults.withCredentials = true;
 
@@ -133,7 +134,7 @@ function App() {
         <Route path="/dashboard" element={
           <>
           <Sidebar>
-          <UserDashboard />
+          <NewUserDashboard />
           </Sidebar>
           </>
         }
