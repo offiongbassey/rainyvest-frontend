@@ -99,7 +99,7 @@ const UserDashboard = () => {
       <div className='dashboard_card'>
         <h4><FaStore className='dashboard-icon-small' size={20} /> Stock Market</h4>
         <br/>
-        {stocks.length > 0 ? (
+        {stocks.length > 1 ? (
         <div className='stock r_card'>
             {
             stocks.map((stock, index) => 
