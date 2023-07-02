@@ -56,10 +56,11 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
                         <br/>
-                        {stockSold.map((item, index) => 
+                        {stockSold.map((item, index) => { return(
                         <h2 key={index}>
                             {item.totalSold === null ? (0) : (`₦${item?.totalSold.toLocaleString(undefined, {maximumFactorDigits: 2})}`)} 
                         </h2>
+                        )}
                         )}
                         </div>
                     </div>
