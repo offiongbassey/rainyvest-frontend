@@ -3,8 +3,8 @@ import {FaStore} from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import Loader from '../../../components/loader/Loader';
 import RedirectLoggedOutUser from '../../../middleware/redirectLoggedOutUser';
-import { getMyStocks } from '../../../services/stockService';
 import {MdGppGood, MdPending} from "react-icons/md";
+import { userDashboard } from '../../../services/authService';
 
 
 const NewUserDashboard = () => {
@@ -15,7 +15,7 @@ const NewUserDashboard = () => {
   useEffect(() => {
     setIsLoading(true);
     async function fetchStocks(){
-      const data = await getMyStocks();
+      const data = await userDashboard();
       setStocks(data);
       setIsLoading(false);
     }
