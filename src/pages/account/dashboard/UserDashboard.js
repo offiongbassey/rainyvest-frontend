@@ -31,7 +31,7 @@ const UserDashboard = () => {
         <div className='dashboard_card'>
         <h4><FaStore className='dashboard-icon-small' size={20} /> Purchased Stocks</h4>
         <br/>
-        {stocks.length > 1 ? (
+        {/* {stocks.length > 1 ? ( */}
         <div className='stock r_card'>
               {
               stocks.map((stock) => {
@@ -74,7 +74,7 @@ const UserDashboard = () => {
                }
 
         </div>
-        ) : (<div className='text-center'><h4>You do not have any Stock yet</h4> <br/> <Link to="/market"><button className='btn-success'>Visit Market</button></Link></div>)}
+        {/* ) : (<div className='text-center'><h4>You do not have any Stock yet</h4> <br/> <Link to="/market"><button className='btn-success'>Visit Market</button></Link></div>)} */}
         
       </div>
     </>
