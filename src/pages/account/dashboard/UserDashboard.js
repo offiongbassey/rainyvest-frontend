@@ -31,8 +31,8 @@ const UserDashboard = () => {
         async function getAnalysis(){
             const data = await myAnalysis();
             setAnalysis(data);
-            toast.success(`here is the data ${data}`);
-            console.log(`here is the data ${data}`);
+            toast.success(`here is the data ${JSON.stringify(data)}`);
+            console.log(`here is the data ${JSON.stringify(data)}`);
         }getAnalysis();
     }, []);
 
