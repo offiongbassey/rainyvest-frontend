@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import "./Dashboard.css";
 import {GiWallet} from "react-icons/gi";
-import {MdOutlineStore} from "react-icons/md";
+import {MdGppGood, MdOutlineStore, MdPending} from "react-icons/md";
 import {BiRightArrow} from "react-icons/bi";
 import {FaStore} from "react-icons/fa";
 import RedirectLoggedOutUser from '../../../middleware/redirectLoggedOutUser';
@@ -96,31 +96,53 @@ const UserDashboard = () => {
                     </div>
             </div>
         </div>
-      <div className='dashboard_card'>
-        <h4><FaStore className='dashboard-icon-small' size={20} /> Stock Market</h4>
+        <div className='dashboard_card'>
+        <h4><FaStore className='dashboard-icon-small' size={20} /> Purchased Stocks</h4>
         <br/>
         {stocks.length > 1 ? (
         <div className='stock r_card'>
-            {
-            stocks.map((stock, index) => { return (
-                <div className='c_card' key={index}>
+              {
+              stocks.map((stock) => {
+                const {product, stockCode, total, status} = stock;
+                return(
+                <div className='c_card'>
                     <div className='stock_item'>
-                    <div className='stock_img' style={{backgroundImage: `url(${stock.product.image})`}}>
+                    <div className='stock_img' style={{backgroundImage: `url(${product.image})`}}>
                     </div>
-                    <h4>{stock.product.name}</h4>
-                    <b>{`₦${stock.total.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</b>
-                    <p>{stock.product.description}</p>
+                    <h4>{product.name}</h4>
+                    <b>{`₦${total.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</b>
+                    <p>{product.description}</p>
+                    <br/>
+                    <hr/>
+                    <div className='text-center'>
+                      
+                    <span>{status}
+                    {status === 'Pending' ? (
+                    <MdPending />
+                    ) : (
+                    <MdGppGood color='green' />
+                    )}
+                    
+                    </span>
+                    </div>
+                    <hr/>
                     <br/>
                     <div className='text-center'>
-                    <Link to={`/stock/${stock.stockCode}`}><button className='btn-success'>View Analysis</button></Link>
+                      {status === 'Pending' ? (
+                    <Link to={`/market-payment/${stockCode}`}><button className='btn-success-out'>Make Payment</button></Link>
+                    ) : (
+                      <Link to={`/stock/${stockCode}`}><button className='btn-success'>Analysis</button></Link> 
+
+                    )}
                     </div>
                 </div>
                 </div>
-                )}
                 )
-                }
+              })
+               }
+
         </div>
-        ) : (<div className='text-center'><h4>You do not have any  active Stock at the moment. </h4> <br/> <Link to="/market"><button className='btn-success'>Visit Market</button></Link></div>)}
+        ) : (<div className='text-center'><h4>You do not have any Stock yet</h4> <br/> <Link to="/market"><button className='btn-success'>Visit Market</button></Link></div>)}
         
       </div>
 
