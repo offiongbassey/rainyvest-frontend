@@ -7,7 +7,7 @@ import {FaStore} from "react-icons/fa";
 import RedirectLoggedOutUser from '../../../middleware/redirectLoggedOutUser';
 import { useSelector } from 'react-redux';
 import { selectUserName } from '../../../redux/features/auth/authSlice';
-import { myInfo, userDashboard } from '../../../services/authService';
+import { myAnalysis, myInfo, userDashboard } from '../../../services/authService';
 import Loader from '../../../components/loader/Loader';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,7 @@ const UserDashboard = () => {
     const userName = useSelector(selectUserName);
     const [user, setUser] = useState('');
     const [stocks, setStocks] = useState("");
-    const [stockSold, setStockSold] = useState([]);
+    const [analysis, setAnalysis] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         async function getUserData(){
@@ -27,11 +27,19 @@ const UserDashboard = () => {
     }, []);
 
     useEffect(() => {
+        async function getAnalysis(){
+            const data = await myAnalysis();
+            setAnalysis(data);
+        }getAnalysis();
+    }, []);
+
+
+
+    useEffect(() => {
         setIsLoading(true);
         async function getRes(){
             const data = await userDashboard();
             setStocks(data);
-            setStockSold(1);
             setIsLoading(false);
         }getRes();
     }, []);
@@ -56,12 +64,9 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
                         <br/>
-                        {/* {stockSold.map((item, index) => { return(
-                        <h2 key={index}>
-                            {item.totalSold === null ? (0) : (`₦${item?.totalSold.toLocaleString(undefined, {maximumFactorDigits: 2})}`)} 
+                        <h2>
+                            {(`₦${analysis.totalSold.toLocaleString(undefined, {maximumFactorDigits: 2})}`)} 
                         </h2>
-                        )}
-                        )} */}
                         </div>
                     </div>
                     <div className='c_card'>

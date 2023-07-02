@@ -95,6 +95,18 @@ export const getUsers = async() => {
             toast.error(message);
         }
     }
+    export const myAnalysis = async() => {
+        try {
+            const response = await axios.get(`${BACKEND_URL}/api/auth/useranalysis`);
+            return response.data;
+        } catch (error) {
+            const message = (
+                error.response && error.response.data && error.response.data.message)
+            || error.message || error.toString();
+            toast.error(message);
+        }
+    }
+    
     export const resendVerificationMail = async(userData) => {
         try {
             const response = await axios.post(`${BACKEND_URL}/api/auth/resendverification`, userData);
