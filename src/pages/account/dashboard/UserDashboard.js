@@ -17,7 +17,7 @@ const UserDashboard = () => {
     const userName = useSelector(selectUserName);
     const [user, setUser] = useState('');
     const [resources, setResources] = useState("");
-    const [stockSold, setStockSold] = useState(0);
+    const [stockSold, setStockSold] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         async function getUserData(){
@@ -56,13 +56,13 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
                         <br/>
-                        {/* {stockSold.map((item, index) => { return(
+                        {stockSold.map((item, index) => { return(
                         <h2 key={index}>
                             {item.totalSold === null ? (0) : (`₦${item?.totalSold.toLocaleString(undefined, {maximumFactorDigits: 2})}`)} 
                         </h2>
                         )}
-                        )} */}
-                        {stockSold}
+                        )}
+                        {/* {stockSold} */}
                         </div>
                     </div>
                     <div className='c_card'>
