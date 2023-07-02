@@ -56,13 +56,12 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
                         <br/>
-                        {stockSold.map((item, index) => { return(
+                        {/* {stockSold.map((item, index) => { return(
                         <h2 key={index}>
                             {item.totalSold === null ? (0) : (`₦${item?.totalSold.toLocaleString(undefined, {maximumFactorDigits: 2})}`)} 
                         </h2>
                         )}
-                        )}
-                        {/* {stockSold} */}
+                        )} */}
                         </div>
                     </div>
                     <div className='c_card'>
@@ -72,11 +71,11 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
                         <br/>
-                        {resources.activeStock.map((item, index) => 
+                        {/* {resources.activeStock.map((item, index) => 
                         <h2 key={index}>
                             {item.totalActive === null ? (0) : (`₦${item.totalActive.toLocaleString(undefined, {maximumFactorDigits: 2})}`)} 
                         </h2>
-                        )}
+                        )} */}
                         </div>
                     </div>
                     
@@ -88,11 +87,11 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
                         <br/>
-                        {resources.stockProfit.map((item, index) => 
+                        {/* {resources.stockProfit.map((item, index) => 
                         <h2 key={index}>
                             {item.totalProfit === null ? (0) : (`₦${item.totalProfit.toLocaleString(undefined, {maximumFactorDigits: 2})}`)}
                         </h2>
-                        )}
+                        )} */}
                     </div>
                     </div>
             </div>
