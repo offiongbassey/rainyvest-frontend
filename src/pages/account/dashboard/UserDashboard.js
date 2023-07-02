@@ -16,7 +16,7 @@ const UserDashboard = () => {
     RedirectLoggedOutUser('/login');
     const userName = useSelector(selectUserName);
     const [user, setUser] = useState('');
-    const [resources, setResources] = useState("");
+    const [stocks, setStocks] = useState("");
     const [stockSold, setStockSold] = useState([]);
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
@@ -30,12 +30,12 @@ const UserDashboard = () => {
         setIsLoading(true);
         async function getRes(){
             const data = await userDashboard();
-            setResources(data);
+            setStocks(data);
             setStockSold(1);
             setIsLoading(false);
         }getRes();
     }, []);
-	if(resources !== ""){
+	if(stocks !== ""){
   return (
     <>
     <h2>Welcome {userName},</h2>
@@ -99,10 +99,10 @@ const UserDashboard = () => {
       <div className='dashboard_card'>
         <h4><FaStore className='dashboard-icon-small' size={20} /> Stock Market</h4>
         <br/>
-        {resources.stocks.length > 0 ? (
+        {stocks.length > 0 ? (
         <div className='stock r_card'>
             {
-            resources.stocks.map((stock, index) => 
+            stocks.map((stock, index) => 
                 <div className='c_card' key={index}>
                     <div className='stock_item'>
                     <div className='stock_img' style={{backgroundImage: `url(${stock.product.image})`}}>
