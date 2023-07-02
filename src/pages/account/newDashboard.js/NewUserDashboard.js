@@ -5,6 +5,7 @@ import Loader from '../../../components/loader/Loader';
 import RedirectLoggedOutUser from '../../../middleware/redirectLoggedOutUser';
 import {MdGppGood, MdPending} from "react-icons/md";
 import { userDashboard } from '../../../services/authService';
+import { toast } from 'react-toastify';
 
 
 const NewUserDashboard = () => {
@@ -17,7 +18,8 @@ const NewUserDashboard = () => {
     async function fetchStocks(){
       const data = await userDashboard();
       setStocks(data);
-      console.log(`This are the stocks ${data.map(item => item.id)}`);
+      toast.error(`This are the stocks ${data.map(item => item.id)}`);
+    //   console.log(`This are the stocks ${data.map(item => item.id)}`);
       setIsLoading(false);
     }
     fetchStocks()
