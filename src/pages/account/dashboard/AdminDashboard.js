@@ -10,6 +10,7 @@ import { adminDashboard } from '../../../services/authService';
 import Loader from '../../../components/loader/Loader';
 import { FaStore } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { toast } from 'react-toastify';
 
 const AdminDashboard = () => {
   RedirectLoggedOutUser('/login');
@@ -21,6 +22,7 @@ const AdminDashboard = () => {
       setIsLoading(true);
       async function getRes(){
           const data = await adminDashboard();
+          toast.success(`This is the product count ${data}`);
           setResources(data);
           setIsLoading(false);
       }getRes();
@@ -99,7 +101,7 @@ if(resources !== ""){
         <div className='dashboard_card'>
         <h4><FaStore className='dashboard-icon-small' size={20} /> Stock Market</h4>
         <br/>
-        <div className='stock r_card'>
+        {/* <div className='stock r_card'>
             {resources.stocks.map((stock, index) => 
                 <div className='c_card' key={index}>
                     <div className='stock_item'>
@@ -115,7 +117,7 @@ if(resources !== ""){
                 </div>
                 </div>
                 )}
-        </div>
+        </div> */}
         
       </div>
     </>
