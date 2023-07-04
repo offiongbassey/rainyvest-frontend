@@ -64,7 +64,7 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
                         <br/>
-                        <h2>₦0</h2>
+                        <h2>{`₦${stocks.stockSold.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
                         </div>
                     </div>
                     <div className='c_card'>
@@ -74,7 +74,7 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
                         <br/>
-                        <h2>₦0</h2>
+                        <h2>{`₦${stocks.activeStock.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
                         </div>
                     </div>
                     
@@ -86,7 +86,7 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
                         <br/>
-                        <h2>₦0</h2>
+                        <h2>{`₦${stocks.stockProfit.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
                     </div>
                     </div>
             </div>
@@ -94,10 +94,10 @@ const UserDashboard = () => {
       <div className='dashboard_card'>
         <h4><FaStore className='dashboard-icon-small' size={20} /> Stock Market</h4>
         <br/>
-        {stocks.length > 1 ? (
+        {stocks.stocks.length > 1 ? (
         <div className='stock r_card'>
             {
-            stocks.map((stock, index) => 
+            stocks.stocks.map((stock, index) => 
                 <div className='c_card' key={index}>
                     <div className='stock_item'>
                     <div className='stock_img' style={{backgroundImage: `url(${stock.product.image})`}}>
