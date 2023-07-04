@@ -45,7 +45,7 @@ if(resources !== ""){
                         <br/>
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
-                        <h2>0</h2>
+                        <h2>{`${resources.productCount.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
                         </div>
                     </div>
                     <div className='c_card'>
@@ -54,7 +54,7 @@ if(resources !== ""){
                         <br/>
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
-                        <h2>0</h2>
+                        <h2>{`${resources.activeStockCount.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
                         </div>
                     </div>
                     
@@ -64,7 +64,7 @@ if(resources !== ""){
                         <br />
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
-                        <h2>0</h2>
+                        <h2>{`${resources.soldStockCount.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
                     </div>
                     </div>
             </div>
@@ -76,7 +76,7 @@ if(resources !== ""){
                         <br/>
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
-                        <h2>₦0</h2>
+                        <h2>{`₦${resources.stockSold.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
                         </div>
                     </div>
                     <div className='c_card'>
