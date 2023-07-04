@@ -10,7 +10,6 @@ import { adminDashboard } from '../../../services/authService';
 import Loader from '../../../components/loader/Loader';
 import { FaStore } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 const AdminDashboard = () => {
   RedirectLoggedOutUser('/login');
@@ -22,10 +21,6 @@ const AdminDashboard = () => {
       setIsLoading(true);
       async function getRes(){
           const data = await adminDashboard();
-          toast.success(`This is the productCount ${data.productCount}`);
-          toast.success(`This is the activeStockCount ${data.activeStockCount}`);
-          toast.success(`This is the soldStockCount ${data.soldStockCount}`);
-          toast.success(`This is the soldStockCount ${data.stockSold}`);
           setResources(data);
           setIsLoading(false);
       }getRes();
@@ -85,7 +80,7 @@ if(resources !== ""){
                         <br/>
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
-                        <h2>₦0</h2>
+                        <h2>{`₦${resources.activeStock.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
                         </div>
                     </div>
                     
@@ -95,7 +90,7 @@ if(resources !== ""){
                         <br />
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
-                        <h2>₦0</h2>
+                        <h2>{`₦${resources.stockProfit.toLocaleString(undefined, {maximumFactorDigits: 2})}`}</h2>
                     </div>
                     </div>
             </div>
@@ -104,7 +99,7 @@ if(resources !== ""){
         <div className='dashboard_card'>
         <h4><FaStore className='dashboard-icon-small' size={20} /> Stock Market</h4>
         <br/>
-        {/* <div className='stock r_card'>
+        <div className='stock r_card'>
             {resources.stocks.map((stock, index) => 
                 <div className='c_card' key={index}>
                     <div className='stock_item'>
@@ -120,7 +115,7 @@ if(resources !== ""){
                 </div>
                 </div>
                 )}
-        </div> */}
+        </div>
         
       </div>
     </>
