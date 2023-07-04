@@ -25,9 +25,6 @@ const AdminDashboard = () => {
           toast.success(`This is the productCount ${data.productCount}`);
           toast.success(`This is the activeStockCount ${data.activeStockCount}`);
           toast.success(`This is the soldStockCount ${data.soldStockCount}`);
-          toast.success(`This is the stockSold ${data.stockSold}`);
-          toast.success(`This is the activeStock ${data.activeStock}`);
-          toast.success(`This is the stockProfit ${data.stockProfit}`);
           setResources(data);
           setIsLoading(false);
       }getRes();
