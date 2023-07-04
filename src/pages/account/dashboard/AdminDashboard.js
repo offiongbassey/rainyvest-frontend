@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import {MdOutlineStore} from "react-icons/md";
-import {BiArrowFromLeft, BiRightArrow} from "react-icons/bi";
-import { TbBrandGoogleAnalytics } from 'react-icons/tb';
-import palm1  from "../../../assets/palm-1.jpg";
+import {BiRightArrow} from "react-icons/bi";
 import RedirectLoggedOutUser from '../../../middleware/redirectLoggedOutUser';
 import { useSelector } from 'react-redux';
 import { selectUserName } from '../../../redux/features/auth/authSlice';

@@ -7,7 +7,7 @@ import {FaStore} from "react-icons/fa";
 import RedirectLoggedOutUser from '../../../middleware/redirectLoggedOutUser';
 import { useSelector } from 'react-redux';
 import { selectUserName } from '../../../redux/features/auth/authSlice';
-import { myAnalysis, myInfo, userDashboard } from '../../../services/authService';
+import { myInfo, userDashboard } from '../../../services/authService';
 import Loader from '../../../components/loader/Loader';
 import { Link } from 'react-router-dom';
 
@@ -17,7 +17,6 @@ const UserDashboard = () => {
     const userName = useSelector(selectUserName);
     const [user, setUser] = useState('');
     const [stocks, setStocks] = useState("");
-    const [analysis, setAnalysis] = useState("");
     const [isLoading, setIsLoading] = useState(false);
     useEffect(() => {
         async function getUserData(){
@@ -25,15 +24,6 @@ const UserDashboard = () => {
             setUser(data);
         }getUserData();
     }, []);
-
-    useEffect(() => {
-        async function getAnalysis(){
-            const data = await myAnalysis();
-            setAnalysis(data);
-        }getAnalysis();
-    }, []);
-
-
 
     useEffect(() => {
         setIsLoading(true);
