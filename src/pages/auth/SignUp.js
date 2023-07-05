@@ -17,7 +17,7 @@ const initialState = {
 
 const SignUp = () => {
   // const dispath = useDispatch();
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState(initialState);
   const {firstName, lastName, email, phone, password, confirmPassword} = formData;
@@ -57,7 +57,10 @@ const SignUp = () => {
     }
 
     try {
-        await registerUser(userData);
+        const data = await registerUser(userData);
+        if(data.status === 201){
+          navigate("/login");
+        }
         setIsLoading(false);
     } catch (error) {
       setIsLoading(false);
