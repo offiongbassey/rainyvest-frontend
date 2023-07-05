@@ -13,7 +13,7 @@ export const registerUser = async(userData) => {
         if(response.status === 201){
             toast.success(response.data);
         }
-        return response;
+        return response.status;
     } catch (error) {
         const message = (
             error.response && error.response.data && error.response.data.message)

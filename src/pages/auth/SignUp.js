@@ -58,7 +58,7 @@ const SignUp = () => {
 
     try {
         const data = await registerUser(userData);
-        if(data.status === 201){
+        if(data === 201){
           navigate("/login");
         }
         setIsLoading(false);
