@@ -1,5 +1,5 @@
 import './App.css';
-import {BrowserRouter, Routes, Route} from "react-router-dom";
+import {BrowserRouter, Routes, Route, Navigate} from "react-router-dom";
 import axios from "axios";
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -28,10 +28,10 @@ import MarketItem from './pages/account/market/MarkekItem';
 import MarketPayment from './pages/account/market/MarketPayment';
 import AdminAddProduct from './pages/account/products/AdminAddProduct';
 import ConfirmEmail from './pages/auth/ConfirmEmail';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getLoginStatus } from './services/authService';
-import { SET_LOGIN } from './redux/features/auth/authSlice';
+import { selectRole, SET_LOGIN } from './redux/features/auth/authSlice';
 import AdminEditProduct from './pages/account/products/AdminEditProduct';
 import TestChart from './pages/account/products/TestChart';
 import StockItem from './pages/account/stock/StockItem';
@@ -41,10 +41,18 @@ import AdminStockItem from './pages/account/stock/AdminStockItem';
 import AdminViewProduct from './pages/account/products/AdminViewProduct';
 import AdminViewUserProfile from './pages/account/profile/AdminViewUserProfile';
 import AdminUserTransactions from './pages/account/profile/AdminUserTransactions';
+import PageNotFound from './pages/pageNotFound/PageNotFound';
 
 axios.defaults.withCredentials = true;
 
 function App() {
+  const role = useSelector(selectRole);
+  let dashboard = '/';
+  if(role === "Admin"){
+    dashboard = '/admin/dashboard';
+  }else{
+    dashboard = '/dashboard';
+  }
   const dispatch = useDispatch();
   useEffect(() => {
     async function loginStatus(){
@@ -129,177 +137,207 @@ function App() {
           </>
         }
         />
+        {/* user dashboard */}
+        <Route path="/dashboard" element={role === 'User' ?(
+                    <>
+                    <Sidebar>
+                    <UserDashboard />
+                    </Sidebar>
+                    </>
+        ) : (<Navigate to={dashboard} />)
 
-        <Route path="/dashboard" element={
-          <>
-          <Sidebar>
-          <UserDashboard />
-          </Sidebar>
-          </>
         }
         />
-        <Route path='/market' element={
+        <Route path='/market' element={role === "User" ? (
           <>
           <Sidebar >
             <Market />
           </Sidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-         <Route path='/market/:url' element={
+         <Route path='/market/:url' element={role === "User" ? (
           <>
           <Sidebar >
             <MarketItem />
           </Sidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-         <Route path='/market-payment/:stockCode' element={
+         <Route path='/market-payment/:stockCode' element={role === "User" ? (
           <>
           <Sidebar >
             <MarketPayment />
           </Sidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path='/stock/:stockCode' element={
+        <Route path='/stock/:stockCode' element={role === "User" ? (
           <>
           <Sidebar>
             <StockItem />
           </Sidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path='/stock' element={
+        <Route path='/stock' element={role === "User" ? (
           <>
           <Sidebar>
             <Stock />
           </Sidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path="/transaction" element={
+        <Route path="/transaction" element={role === "User" ? (
           <>
           <Sidebar>
             <Transaction />
           </Sidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path="/profile" element={
+        <Route path="/profile" element={role === "User" ? (
           <>
-          
           <Sidebar>
             <Profile />
           </Sidebar>
           </>
+                    ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path="/admin/dashboard" element={
+        <Route path="/admin/dashboard" element={role === "Admin" ? (
           <>
           <AdminSidebar >
             <AdminDashboard/>
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path="/admin/users" element={
+        <Route path="/admin/users" element={role === "Admin" ? (
           <>
           <AdminSidebar >
             <AdminUsers />
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path="/admin/products" element={
+        <Route path="/admin/products" element={role === "Admin" ? (
           <>
           <AdminSidebar >
             <AdminProducts />
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-         <Route path="/admin/add-product" element={
+         <Route path="/admin/add-product" element={role === "Admin" ? (
           <>
           <AdminSidebar >
             <AdminAddProduct />
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-         <Route path="/admin/test" element={
+         <Route path="/admin/test" element={role === "Admin" ? (
           <>
           <AdminSidebar >
             <TestChart />
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-         <Route path="/admin/edit-product/:id" element={
+         <Route path="/admin/edit-product/:id" element={role === "Admin" ? (
           <>
           <AdminSidebar >
             <AdminEditProduct />
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path='/admin/product/:id' element={
+        <Route path='/admin/product/:id' element={role === "Admin" ? (
           <>
           <AdminSidebar>
             <AdminViewProduct />
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path='/admin/user-transactions/:id' element={
+        <Route path='/admin/user-transactions/:id' element={role === "Admin" ? (
           <>
           <AdminSidebar>
             <AdminUserTransactions />
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-         <Route path='/admin/user-profile/:id' element={
+         <Route path='/admin/user-profile/:id'  element={role === "Admin" ? (
           <>
           <AdminSidebar>
             <AdminViewUserProfile />
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path="/admin/stock" element={
+        <Route path="/admin/stock"  element={role === "Admin" ? (
           <>
           <AdminSidebar >
             <AdminStock />
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path='/admin/stock/:stockCode' element={
+        <Route path='/admin/stock/:stockCode' element={role === "Admin" ? (
           <>
           <AdminSidebar>
             <AdminStockItem />
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path="/admin/transactions" element={
+        <Route path="/admin/transactions"  element={role === "Admin" ? (
           <>
           <AdminSidebar >
             <AdminTransactions />
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
         }
         />
-        <Route path="/admin/profile" element={
+        <Route path="/admin/profile"  element={role === "Admin" ? (
           <>
           <AdminSidebar >
             <AdminProfile />
           </AdminSidebar>
           </>
+          ) : (<Navigate to={dashboard} />)
+        }
+        />
+        <Route path="*" element={
+          <>
+          <Navbar />
+          <PageNotFound />
+          <Footer/>
+          </>
         }
         />
       </Routes>
+
     </BrowserRouter>
   );
 }
