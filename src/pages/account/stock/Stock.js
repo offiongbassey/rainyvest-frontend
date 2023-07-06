@@ -30,7 +30,7 @@ const Stock = () => {
         <div className='dashboard_card'>
         <h4><FaStore className='dashboard-icon-small' size={20} /> Purchased Stocks</h4>
         <br/>
-        {stocks.length > 1 ? (
+        {stocks.length > 0 ? (
         <div className='stock r_card'>
               {
               stocks.map((stock) => {

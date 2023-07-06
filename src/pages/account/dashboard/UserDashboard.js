@@ -54,7 +54,7 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon' size={50} />
                         <br/>
                         <br/>
-                        <h2>{`₦${stocks.stockSold > 0 ? stocks.stockSold.toLocaleString(undefined, {maximumFactorDigits: 2}) : 0}`}</h2>
+                        <h2>{`₦${stocks.stockSold !== null ? stocks.stockSold.toLocaleString(undefined, {maximumFactorDigits: 2}) : 0}`}</h2>
                         </div>
                     </div>
                     <div className='c_card'>
@@ -64,7 +64,7 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
                         <br/>
-                        <h2>{`₦${stocks.activeStock > 0 ? stocks.activeStock.toLocaleString(undefined, {maximumFactorDigits: 2}) : 0}`}</h2>
+                        <h2>{`₦${stocks.activeStock !== null ? stocks.activeStock.toLocaleString(undefined, {maximumFactorDigits: 2}) : 0}`}</h2>
                         </div>
                     </div>
                     
@@ -76,7 +76,7 @@ const UserDashboard = () => {
                         <MdOutlineStore className='dashboard-icon'  size={50} />
                         <br/>
                         <br/>
-                        <h2>{`₦${stocks.stockProfit > 0 ? stocks.stockProfit.toLocaleString(undefined, {maximumFactorDigits: 2}) : 0}`}</h2>
+                        <h2>{`₦${stocks.stockProfit !== null ? stocks.stockProfit.toLocaleString(undefined, {maximumFactorDigits: 2}) : 0}`}</h2>
                     </div>
                     </div>
             </div>
@@ -84,7 +84,7 @@ const UserDashboard = () => {
       <div className='dashboard_card'>
         <h4><FaStore className='dashboard-icon-small' size={20} /> Stock Market</h4>
         <br/>
-        {stocks.stocks.length > 1 ? (
+        {stocks.stocks.length > 0 ? (
         <div className='stock r_card'>
             {
             stocks.stocks.map((stock, index) => 
