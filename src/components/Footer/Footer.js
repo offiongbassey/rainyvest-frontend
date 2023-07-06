@@ -35,7 +35,7 @@ const Footer = () => {
         </div>
         <hr />
         <div className='text-center'>
-            <h4>Developed By Offiong Bassey</h4>
+            <Link to="https://dribbble.com/offiongbassey"><h4>Developed By Offiong Bassey</h4></Link>
         </div>
     </div>
   )

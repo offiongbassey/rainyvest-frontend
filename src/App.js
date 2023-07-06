@@ -50,8 +50,10 @@ function App() {
   let dashboard = '/';
   if(role === "Admin"){
     dashboard = '/admin/dashboard';
-  }else{
+  }else if(role === 'User'){
     dashboard = '/dashboard';
+  }else{
+    dashboard = '/login';
   }
   const dispatch = useDispatch();
   useEffect(() => {
