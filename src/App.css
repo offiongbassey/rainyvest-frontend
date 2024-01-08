@@ -32,6 +32,13 @@ padding: 10px;
   text-align: center;
 }
 
+ h1{
+  font-size: 64px;
+  font-weight: 800;
+  line-height: 75px;
+  color: rgb(0, 0, 0);
+}
+
 button{
 border: none;
 border-radius: 10px;
@@ -89,7 +96,18 @@ padding: 10px;
     background-color:rgb(235, 204, 68);
     color: #fff;
    }
-
+   .btn-success-large{
+    width: 250px;
+    height: 70px;
+    border-radius: 50px;
+    background-color: rgb(21, 170, 58);
+    color: #fff;
+    box-shadow: rgba(59, 216, 88, 0.2) 10px 0px 20px 5px;
+}
+.btn-success-large:hover{
+  background-color: rgb(43, 206, 84);
+  color: #fff;
+ }
    .btn-success{
     max-width: 500px;
     min-width: 100px;
@@ -210,3 +228,16 @@ a{
   
   }
    }
+
+
+@media (max-width: 480px) {
+  h1{
+      font-size: 40px;
+      font-weight: 800;
+      line-height: 50px;
+  }
+  img{
+   display: none;
+  }
+
+}

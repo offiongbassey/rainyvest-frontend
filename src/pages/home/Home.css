@@ -31,34 +31,34 @@
 .market{
     padding-top: 60px;
 }
-.market h1{
-    font-weight: 800;
-    font-family: 'Acme', sans-serif;
-    font-family: 'Poppins', sans-serif;
-    color: rgb(17, 63, 17);
-}
 .market .info span{
     background-color: rgb(253, 253, 30);
     padding: 5px;
 }
 .market .img img{
-width: 500px;
+margin-top: 30px;
+width: 450px;
 border-radius: 50px;
+transform: rotate(5deg);
+/* border: 1px solid rgb(160, 215, 160); */
+box-shadow: rgba(59, 216, 88, 0.2) 10px 0px 15px 5px;
+/* background-color: red; */
 
-}
-.market .img img:hover{
-    transition: 0.9s;
-box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+
 }
 
 .market .steps{
     padding: 20px 10px;
-    /* background-color: red; */
-    border-left: 2px solid #efefef;
 }
-.market .steps span{
-    padding: 15px 15px 0px 15px;
-    background-color: #efefef
+.market .steps-icon{
+    padding: 25px;
+    border-radius: 50%;
+    color: #fff;
+    background-color: rgb(21, 170, 58);
+}
+
+.market .c_card {
+    width: 700px;
 }
 
 .profit{
@@ -88,8 +88,13 @@ box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     }
     .market .img img{
         width:320px;
-        
-        }
+    }
+    .market .steps{
+    padding: 0px;
+    }
+    .market .c_card{
+        max-width: 98%;
+    }
 }
 
 @media(max-width: 1200px){

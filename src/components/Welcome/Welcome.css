@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,600;1,500&display=swap');
+
+.welcome{
+    padding: 100px 20px 100px 20px;
+    background-color: #fff;
+}
+.welcome-img img{
+    max-width: 550px;
+    transform: scale(-1);
+    -webkit-transform: scaleX(-1);
+}
+
+.welcome-info .info{
+    padding: 130px 50px 50px 100px;
+    margin-top: 30px;
+}
+
+.welcome-info .info p{
+    padding-top: 30px;
+    font-size: 18px;
+    line-height: 25px;
+    font-style: italic;
+}
+
+.welcome .span-link {
+    margin-left: 30px;
+    font-size: 18px;
+    font-weight: 800;
+    color: black;
+}
+
+@media(max-width: 767px){
+    .welcome-img{
+        display: none;
+    }
+    .welcome {
+        padding: 0px;
+    }
+   
+    .welcome-info .info{
+    padding: 60px 10px 10px 20px;
+    margin-top: 30px;
+    }   
+}

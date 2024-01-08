@@ -5,6 +5,7 @@ header {
     width: 100%;
     background-color: #fff;
     box-shadow: -1px 15px 17px -8px rgba(0,0,0,0.1);
+    z-index: 9999;
 }
 header ul {
     line-height: 8vh;

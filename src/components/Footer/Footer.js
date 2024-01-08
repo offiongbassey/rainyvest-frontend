@@ -11,9 +11,9 @@ const Footer = () => {
         <div className='r_card'>
           <div className='c_card'>
             <h1>Rainy<span>Vest</span></h1>
-            <p>RainyVest is an Agric Product Invesment Company that offers Buying and Selling of Products  with just little service charge.</p>
+            <p>RainyVest is an Agric Product Invesment Company that offers Buying and Selling of Products  at the comfort of your home.</p>
           </div>
-          <div className='c_card'>
+          <div className='c_card links'>
             <h2>Links</h2>
             <ul>
               <Link to="/"><li>Home</li></Link>
@@ -25,7 +25,7 @@ const Footer = () => {
           <div className='c_card'>
             <h2>Contact Us</h2>
             <ul>
-              <li><MdShareLocation size={20} /> 42 Murtala Mohamed Highway, Calabar</li>
+              <li><MdShareLocation size={20} /> 42 Murtala Mohamed Highway, Norway</li>
               <li><MdOutlineMarkEmailRead size={20}/> info@rainyvest.com</li>
               <li><BsTelephoneX size={20} /> +234 8089245421</li>
             </ul>
@@ -34,8 +34,8 @@ const Footer = () => {
         
         </div>
         <hr />
-        <div className='text-center'>
-            <Link to="https://dribbble.com/offiongbassey"><h4>Developed By Offiong Bassey</h4></Link>
+        <div className='text-center rights'>
+            <p>2024 @ Rainyvest | All rights reserved</p>
         </div>
     </div>
   )
