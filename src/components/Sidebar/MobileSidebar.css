@@ -42,6 +42,7 @@
 @media(max-width: 900px){
     .prof-icon{
     margin-top: 16px;
+    right: 30px;
     color: rgb(14, 199, 29);
     }
     .mobileNavbar{
@@ -88,10 +89,10 @@
     .open{
         top:10%;
         cursor: pointer;
-        right: 80px;
+        right: 30px;
     }
     .close {
-         right: 45%;
+         right: 30px;
          cursor: pointer;
     }
     .close .home-btn {
