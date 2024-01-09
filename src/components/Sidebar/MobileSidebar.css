@@ -38,13 +38,15 @@
 .navlink{
     margin-top: -20px;
     padding: 0px 10px 10px 30px;
+    
 }
 @media(max-width: 900px){
     .prof-icon{
-    margin-top: 16px;
-    right: 30px;
+    margin-right: 40px;
+    margin-top: 17px;
     color: rgb(14, 199, 29);
     }
+    
     .mobileNavbar{
         display: block;
     }

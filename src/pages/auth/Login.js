@@ -4,13 +4,8 @@ import Auth from '../../components/Auth/Auth';
 import {useDispatch} from "react-redux";
 import {toast} from "react-toastify";
 import Loader from "../../components/loader/Loader";
-import { initiateGoogleAuth, loginUser } from '../../services/authService';
+import { loginUser } from '../../services/authService';
 import { SET_LOGIN, SET_ROLE, SET_USERNAME } from '../../redux/features/auth/authSlice';
-
-import { GoogleLogin } from '@react-oauth/google';
-
-
-
 
 const initialState = {
   email: "",

@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { TbBrandGoogleAnalytics } from 'react-icons/tb';
-import palm1  from "../../../assets/palm-1.jpg";
 import { useNavigate, useParams } from 'react-router-dom';
 import { getMarketItem } from '../../../services/marketService';
 import Loader from '../../../components/loader/Loader';

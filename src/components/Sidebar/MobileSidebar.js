@@ -27,17 +27,14 @@ const MobileSidebar = () => {
               </li>
             </ul>
             <Link to="/profile"> <HiOutlineUserCircle className='prof-icon' size={40} /></Link>
+      
             <button className='toggle' onClick={() => setMobileMenu(!MobileMenu)}>
               {
                 MobileMenu? <AiOutlineCloseCircle className='close' size={30} />  : <AiOutlineBars className='open' size={30} />
               }
-  
             </button>
-  
           </div>
-  
         </div>
-  
       </div>
     )
 }

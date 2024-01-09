@@ -3,10 +3,13 @@ header {
     height: 8vh;
     position: fixed;
     width: 100%;
+    padding: 8px;
     background-color: #fff;
     box-shadow: -1px 15px 17px -8px rgba(0,0,0,0.1);
     z-index: 999;
+
 }
+
 header ul {
     line-height: 8vh;
     list-style: none;

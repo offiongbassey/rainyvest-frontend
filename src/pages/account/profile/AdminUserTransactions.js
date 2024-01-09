@@ -10,17 +10,14 @@ import { FaStore } from 'react-icons/fa';
 const AdminUserTransactions = () => {
   RedirectLoggedOutUser("/login");
   const [res, setRes] = useState("");
-  const [isLoading, setIsLoading] = useState(false);
   const {id} = useParams();
 
   useEffect(() => {
-      setIsLoading(true);
       async function getUserData() {
           const data = await adminGetUserTransactions(id);
           setRes(data);
-          setIsLoading(false);
       }getUserData();
-  }, []);
+  }, [id]);
 if(res !== ""){
     const {id, firstName, lastName, status, balance, email, accountName, accoutNumber, bank, phone} = res.user;
   return (

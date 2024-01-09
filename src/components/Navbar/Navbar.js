@@ -9,7 +9,8 @@ const Navbar = () => {
   return (
     <header className='header'>
       <div className='container d_flex'>
-        <Link to="/"><div className='categories d_flex'>
+        <Link to="/">
+          <div className='categories d_flex'>
           <span className='fa-solid fa-border-all'></span>
           <h4><BiCategoryAlt size={20} />RainyVest  </h4>
         </div>
